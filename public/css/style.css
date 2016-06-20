@@ -21,5 +21,29 @@ h1 {
   image-orientation: center;
   font-size: 18px;
 }
+
 h5 {  text-align: bottom-right; }
 img{max-width: 100%}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  color: blue;
+}
+
+li a:hover {
+  background-color: #4caf50;
+}
+

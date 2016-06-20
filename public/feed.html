@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="feed.html">read the feed</a></li>
+      <li><a href="post.html">post something</a></li>
+    </ul>
     <h1 class="title">Idea Feed</h1>
     <div class="idea-box">
     </div>
@@ -15,7 +19,7 @@
 //Hello! This is the start of the JavaScript.
 
 var displayIdea = function(idea) {
-  var ideaElement = $('<div class="post">' +  "<img src=https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1 width=500px>"+"<br>"+ idea + "<h5 class='author'>author</h5>"+'</div>');
+  var ideaElement = $('<div class="post">' +  "<img src=https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1 width=500px>"+"<br>"+ idea.text + "<h5 class='author'>author</h5>"+'</div>');
   $(".idea-box").append(ideaElement);
 
 }

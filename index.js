@@ -13,7 +13,10 @@ app.use(bodyParser.json())
 
 //make an empty list of ideas
 var posts = [];
-posts.push("Two cats who solve crimes in Dunedin");
+var idea={};
+idea.time=new Date();
+idea.text ="Two cats who solve crimes in Dunedin";
+posts.push(idea);
 
 //let a client GET the list of ideas
 var sendIdeasList = function (request, response) {
@@ -24,7 +27,10 @@ app.get('/ideas', sendIdeasList);
 //let a client POST new ideas
 var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
-  posts.push(request.body.idea); //save it in our list
+  var idea = {};
+  idea.text = request.body.idea;
+  idea.time=new Date();
+  posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
 }
 app.post('/ideas', saveNewIdea);
