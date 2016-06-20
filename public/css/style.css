@@ -18,3 +18,25 @@ h2 {
   border-radius: 5px;
   text-align: center;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  color: blue;
+}
+
+li a:hover {
+  background-color: #4caf50;
+}
