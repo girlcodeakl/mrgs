@@ -11,8 +11,14 @@
         <li><a href="feed.html">read the feed</a></li>
         <li><a href="post.html">post something</a></li>
       </ul>
+
+      <br>
       <form class="form" method="post" action="/ideas">
           <input class="ideaInput" type="text" name="idea" value="idea goes here">
+          <br><br>
+          <input class="image" type="text" name="image" value="type image url">
+          <br>
+
           <input type="submit" value="Submit">
       </form>
       <div class="note"></div>
@@ -22,6 +28,7 @@
           e.preventDefault();
           var data = {};
           data.idea = $(".ideaInput").val();
+          data.URL = $(".image").val();
           $.post( "/ideas", data );
           $(".note").text("Thanks! Your idea was submitted.");
         }
