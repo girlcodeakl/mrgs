@@ -31,12 +31,12 @@ var saveNewIdea = function (request, response) {
   var idea = {};
   idea.text = request.body.idea;
   idea.author = request.body.author;
+  idea.URL = request.body.URL;
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
 }
 app.post('/ideas', saveNewIdea);
-
 //listen for connections on port 3000
 app.listen(3000);
 console.log("I am listening...");
