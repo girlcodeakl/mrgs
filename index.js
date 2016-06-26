@@ -1,8 +1,8 @@
 //set up
+var database = null;
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser')
-
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
 app.use(express.static(__dirname + '/public'));
@@ -46,3 +46,19 @@ app.post('/ideas', saveNewIdea);
 //listen for connections on port 3000
 app.listen(process.env.PORT || 3000);
 console.log("I am listening...");
+
+var mongodb = require('mongodb');
+var uri = 'mongodb://girlcode:mrgs@ds023704.mlab.com:23704/girlcode_mrgs';
+mongodb.MongoClient.connect(uri, function(err, newdb) {
+  if(err) throw err;
+  console.log("yay we connected to the database");
+  database = newdb;
+  var dbPosts = database.collection('posts');
+  dbPosts.find(function (err, cursor) {
+    cursor.each(function (err, item) {
+      if (item != null) {
+        posts.push(item);
+      }
+    });
+  });
+});
