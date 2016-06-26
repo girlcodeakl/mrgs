@@ -41,6 +41,8 @@ var saveNewIdea = function (request, response) {
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
+  var dbPosts = database.collection('posts');
+  dbPosts.insert(idea);  
 }
 app.post('/ideas', saveNewIdea);
 //listen for connections on port 3000
