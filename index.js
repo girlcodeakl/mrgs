@@ -28,12 +28,15 @@ app.get('/ideas', sendIdeasList);
 //let a client POST new ideas
 var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
+  console.log(request.body.author);
   var idea = {};
   idea.text = request.body.idea;
   if ( request.body.URL === "")
     idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
   else
     idea.URL = request.body.URL;
+  idea.author = request.body.author;
+
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");

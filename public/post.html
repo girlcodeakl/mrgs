@@ -14,11 +14,13 @@
 
       <br>
       <form class="form" method="post" action="/ideas">
+
           <input class="ideaInput" type="text" name="idea" placeholder="idea goes here">
+          <br>
+          <input class="authorInput" type="text" name="idea" placeholder="author goes here">
           <br><br>
           <input class="image" type="text" name="image" placeholder="type image url">
           <br>
-
           <input type="submit" value="Submit">
       </form>
       <div class="note"></div>
@@ -28,6 +30,7 @@
           e.preventDefault();
           var data = {};
           data.idea = $(".ideaInput").val();
+          data.author = $(".authorInput").val();
           data.URL = $(".image").val();
           $.post( "/ideas", data );
           $(".note").text("Thanks! Your idea was submitted.");
