@@ -30,7 +30,10 @@ var saveNewIdea = function (request, response) {
   console.log(request.body.idea); //write it on the command prompt so we can see
   var idea = {};
   idea.text = request.body.idea;
-  idea.URL = request.body.URL;
+  if ( request.body.URL === "")
+    idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
+  else
+    idea.URL = request.body.URL;
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
