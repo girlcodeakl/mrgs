@@ -7,14 +7,23 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="feed.html">read the feed</a></li>
-      <li><a href="post.html">post something</a></li>
-    </ul>
+    <form class="form" method="post" action="/ideas">
+
+        <input class="ideaInput" type="text" name="idea" placeholder="idea goes here">
+        <br>
+        <input class="authorInput" type="text" name="idea" placeholder="author goes here">
+        <br><br>
+        <input class="image" type="text" name="image" placeholder="type image url">
+        <br>
+        <input class="link" type="text" name="image" placeholder="recipe/restaurant link">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="note"></div>
     <h1 class="title">Idea Feed</h1>
     <div class="idea-box">
     </div>
+
     <script>
 //Hello! This is the start of the JavaScript.
 
@@ -32,6 +41,19 @@ var createFeed = function(data) {
 
 $.get("/ideas", createFeed);
 
+var myCoolFunction = function (e) {
+  e.preventDefault();
+  var data = {};
+  data.idea = $(".ideaInput").val();
+  data.author = $(".authorInput").val();
+  data.URL = $(".image").val();
+  data.link = $(".link").val();
+  $.post( "/ideas", data );
+  $(".note").text("Thanks! Your idea was submitted.");
+}
+
+
+$(".form").on("submit", myCoolFunction);
 
 //This is the end of the JavaScript.
     </script>
