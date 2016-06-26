@@ -21,6 +21,8 @@
           <br><br>
           <input class="image" type="text" name="image" placeholder="type image url">
           <br>
+          <input class="link" type="text" name="image" placeholder="recipe/restaurant link">
+          <br>
           <input type="submit" value="Submit">
       </form>
       <div class="note"></div>
@@ -32,6 +34,7 @@
           data.idea = $(".ideaInput").val();
           data.author = $(".authorInput").val();
           data.URL = $(".image").val();
+          data.link = $(".link").val();
           $.post( "/ideas", data );
           $(".note").text("Thanks! Your idea was submitted.");
         }

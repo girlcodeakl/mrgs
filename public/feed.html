@@ -20,7 +20,7 @@
 
 var displayIdea = function(idea) {
 
-  var ideaElement = $('<div class="post">' +  "<img src='"+ idea.URL+ "'width=500px>"+"<br>"+ idea.text + "<h5 class='author'>" + idea.author + "</h5>"+'</div>');
+  var ideaElement = $('<div class="post">' +  "<a href=" +idea.link+ "><img src='"+ idea.URL+ "'width=500px></a>"+"<br>"+ idea.text + "<h5 class='author'>" + idea.author + "</h5>"+'</div>');
 
   $(".idea-box").append(ideaElement);
 

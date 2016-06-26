@@ -36,6 +36,7 @@ var saveNewIdea = function (request, response) {
   else
     idea.URL = request.body.URL;
   idea.author = request.body.author;
+  idea.link = request.body.link;
 
   idea.time=new Date();
   posts.push(idea)
