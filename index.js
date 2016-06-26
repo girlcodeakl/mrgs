@@ -16,6 +16,7 @@ var posts = [];
 var idea={};
 idea.time=new Date();
 idea.text ="Two cats who solve crimes in Dunedin";
+idea.URL = "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
 posts.push(idea);
 
 //let a client GET the list of ideas
