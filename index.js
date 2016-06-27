@@ -15,8 +15,10 @@ app.use(bodyParser.json())
 var posts = [];
 var idea={};
 idea.time=new Date();
-idea.text ="Two cats who solve crimes in Dunedin";
-idea.URL = "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
+idea.text ="This is a awesome pasta recipe I found! It serves 4 people and tastes amazing!";
+idea.URL = "http://www.simplyrecipes.com/wp-content/uploads/2016/02/shrimp-pasta-vodka-horiz-a-1600.jpg";
+idea.link = "http://www.simplyrecipes.com/recipes/shrimp_pasta_alla_vodka/"
+idea.author = "Jane Doe"
 posts.push(idea);
 
 //let a client GET the list of ideas
@@ -42,7 +44,7 @@ var saveNewIdea = function (request, response) {
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
   var dbPosts = database.collection('posts');
-  dbPosts.insert(idea);  
+  dbPosts.insert(idea);
 }
 app.post('/ideas', saveNewIdea);
 //listen for connections on port 3000
