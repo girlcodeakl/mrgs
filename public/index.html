@@ -38,9 +38,10 @@ var displayIdea = function(idea) {
 var createFeed = function(data) {
   data.forEach(displayIdea);
 }
-
-$.get("/ideas", createFeed);
-
+var updateFeed = function (feed){
+  $(".idea-box").empty();
+  $.get("/ideas", createFeed);
+}
 var myCoolFunction = function (e) {
   e.preventDefault();
   var data = {};
@@ -48,7 +49,7 @@ var myCoolFunction = function (e) {
   data.author = $(".authorInput").val();
   data.URL = $(".image").val();
   data.link = $(".link").val();
-  $.post( "/ideas", data );
+  $.post( "/ideas", data, updateFeed );
   $(".note").text("Thanks! Your idea was submitted.");
 }
 
