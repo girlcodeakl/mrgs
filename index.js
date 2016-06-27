@@ -41,8 +41,11 @@ var saveNewIdea = function (request, response) {
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
+if(database!=null){
   var dbPosts = database.collection('posts');
-  dbPosts.insert(idea);  
+  dbPosts.insert(idea);
+  }
+
 }
 app.post('/ideas', saveNewIdea);
 //listen for connections on port 3000
@@ -52,7 +55,10 @@ console.log("I am listening...");
 var mongodb = require('mongodb');
 var uri = 'mongodb://girlcode:mrgs@ds023704.mlab.com:23704/girlcode_mrgs';
 mongodb.MongoClient.connect(uri, function(err, newdb) {
-  if(err) throw err;
+  if(err) {
+    console.log( err);
+;return;
+  }
   console.log("yay we connected to the database");
   database = newdb;
   var dbPosts = database.collection('posts');
