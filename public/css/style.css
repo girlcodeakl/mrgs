@@ -1,5 +1,6 @@
 body {
   color: black;
+  background-color: lightskyblue;
 }
 .idea-box {
   background-color: lightskyblue;
@@ -8,18 +9,21 @@ body {
 h1 {
   text-align: center;
   color: darkblue;
+  border-bottom: 2px black double;
+  font-family: sans-serif;
+  font-size: 32pt
 }
 
 .post {
   color: black;
   margin: 50px;
-  padding: 5px;
-  border: 3px solid steelblue;
+  padding: 15px;
+  border: 3px solid #225378;
   background-color: white;
   border-radius: 10px;
-  text-align: left;
-  image-orientation: center;
+  text-align: center;
   font-size: 18px;
+  font-family: sans-serif;
 }
 
 h5 {  text-align: bottom-right; }
@@ -47,3 +51,9 @@ li a:hover {
   background-color: #4caf50;
 }
 
+form {
+  background-color: lightblue;
+  text-align: left;
+  padding: 10px;
+  border: 2px solid #225378;
+}
