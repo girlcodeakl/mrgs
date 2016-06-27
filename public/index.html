@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <title>Idea Feed</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <form class="form" method="post" action="/ideas">
+  <head>
+    <meta charset='utf-8'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Idea Feed</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <form class="form" method="post" action="/ideas">
 
-    <input class="ideaInput" type="text" name="idea" placeholder="idea goes here">
-    <br>
-    <input class="authorInput" type="text" name="idea" placeholder="author goes here">
-    <br><br>
-    <input class="image" type="text" name="image" placeholder="type image url">
-    <br>
-    <input class="link" type="text" name="image" placeholder="recipe/restaurant link">
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-  <div class="note"></div>
-  <h1 class="title">Idea Feed</h1>
-  <div class="idea-box">
-  </div>
+        <input class="ideaInput" type="text" name="idea" placeholder="idea goes here">
+        <br>
+        <input class="authorInput" type="text" name="idea" placeholder="author goes here">
+        <br><br>
+        <input class="image" type="text" name="image" placeholder="type image url">
+        <br>
+        <input class="link" type="text" name="image" placeholder="recipe/restaurant link">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="note"></div>
+    <h1 class="title">Idea Feed</h1>
+    <div class="idea-box">
+    </div>
 
-  <script>
-  //Hello! This is the start of the JavaScript.
+    <script>
+//Hello! This is the start of the JavaScript.
 
-  var displayIdea = function(idea) {
+var displayIdea = function(idea) {
 
     var ideaElement = $('<div class="post">' +  "<a href='"+idea.link+"' target='_blank'><img src='"+
      idea.URL+ "'width=500px></a>"+"<br>"+
       idea.text + "<h5 class='author'>" + idea.author + "</h5>"+'</div>');
 
-    $(".idea-box").append(ideaElement);
+  $(".idea-box").append(ideaElement);
 
-  }
+}
 
-  var createFeed = function(data) {
-    data.reverse();
-    data.forEach(displayIdea);
-
-  }
-
+var createFeed = function(data) {
+  data.reverse();
+  data.forEach(displayIdea);
+}
+var updateFeed = function (feed){
+  $(".idea-box").empty();
   $.get("/ideas", createFeed);
+}
+var myCoolFunction = function (e) {
+  e.preventDefault();
+  var data = {};
+  data.idea = $(".ideaInput").val();
+  data.author = $(".authorInput").val();
+  data.URL = $(".image").val();
+  data.link = $(".link").val();
+  $.post( "/ideas", data, updateFeed );
+  $(".note").text("Thanks! Your idea was submitted.");
+}
 
-  var myCoolFunction = function (e) {
-    e.preventDefault();
-    var data = {};
 
-    data.idea = $(".ideaInput").val();
-    data.author = $(".authorInput").val();
-    data.URL = $(".image").val();
-    data.link = $(".link").val();
-    $.post( "/ideas", data );
-    $(".note").text("Thanks! Your idea was submitted.");
-  }
+$(".form").on("submit", myCoolFunction);
+updateFeed();
 
-
-  $(".form").on("submit", myCoolFunction);
-
-  //This is the end of the JavaScript.
-  </script>
-</body>
+//This is the end of the JavaScript.
+    </script>
+  </body>
 </html>
