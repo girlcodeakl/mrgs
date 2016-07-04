@@ -5,6 +5,9 @@ body {
 .idea-box {
   background-color: lightskyblue;
   padding: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 h1 {
   text-align: center;
@@ -26,8 +29,13 @@ h1 {
   font-family: sans-serif;
 }
 
-h5 {  text-align: bottom-right; }
-img{max-width: 100%}
+h5 {
+  text-align: bottom-right;
+}
+
+img {
+  max-width: 100%;
+}
 
 ul {
   list-style-type: none;
@@ -56,7 +64,7 @@ form {
   text-align: left;
   padding: 10px;
   border: 2px solid #225378;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .note {
@@ -73,4 +81,8 @@ form {
 
 .note.shown {
   display: block;
+}
+
+.author {
+    color: #eb7f00;
 }
