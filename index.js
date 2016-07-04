@@ -41,13 +41,13 @@ var saveNewIdea = function (request, response) {
   idea.link = request.body.link;
 
   var prefix = "http://";
-  if (idea.link.substr(0, prefix.length) !== prefix){
+  var prefix2 ="https://";
+  if (idea.link.substr(0, prefix.length) !== prefix && idea.link.substr(0,prefix2.length) !==prefix2){
     idea.link=prefix + idea.link;
   }
   else {
     idea.link=idea.link;
   }
-
 
   idea.time=new Date();
   posts.push(idea)
