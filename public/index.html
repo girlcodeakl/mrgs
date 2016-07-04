@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1 class="title">FoodPix</h1>
+
     <form class="form" method="post" action="/ideas">
 
         <input class="ideaInput" type="text" name="idea" placeholder="idea goes here">
@@ -21,6 +22,7 @@
         <input type="submit" value="Post">
     </form>
     <div class="note"></div>
+<input class="filterInput" type="text" name="idea" placeholder="add filters here">
     <div class="idea-box">
     </div>
 
@@ -52,14 +54,31 @@ var myCoolFunction = function (e) {
   data.author = $(".authorInput").val();
   data.URL = $(".image").val();
   data.link = $(".link").val();
+
   $.post( "/ideas", data, updateFeed );
   $(".note").text("Thanks! Your idea was submitted.");
+}
+var filterFunction = function(filter){
+var data = {};
+data.filter = $(".filterInput").val().toLowerCase();
+$(".idea-box").children().each(function(number, post) {
+var post2 =($(post))
+console.log(post2.text())
+if (post2.text().toLowerCase().indexOf(data.filter)>= 0) {
+  post2.fadeIn(150);
+} else {
+    post2.fadeOut(150);
+}
+ //code in here will be run once for each post
+});
+console.log (data)
+
 }
 
 
 $(".form").on("submit", myCoolFunction);
 updateFeed();
-
+$(".filterInput").keyup(filterFunction);
 //This is the end of the JavaScript.
     </script>
   </body>
