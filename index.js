@@ -3,7 +3,6 @@ var database = null;
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser')
-var prefix = "http://";
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
 app.use(express.static(__dirname + '/public'));
@@ -38,6 +37,8 @@ var saveNewIdea = function (request, response) {
     idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
   else
     idea.URL = request.body.URL;
+
+  var prefix = "http://";
   if (s.substr(0, prefix.length) !== prefix){
     s=prefix + s;
   }
