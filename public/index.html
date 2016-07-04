@@ -54,6 +54,8 @@ var myCoolFunction = function (e) {
   data.link = $(".link").val();
   $.post( "/ideas", data, updateFeed );
   $(".note").text("Thanks! Your idea was submitted.");
+  $(".note").addClass("shown")
+  $(".note").fadeOut(3000);
 }
 
 
