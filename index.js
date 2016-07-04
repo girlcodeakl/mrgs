@@ -34,7 +34,7 @@ var saveNewIdea = function (request, response) {
   var idea = {};
   idea.text = request.body.idea;
   if ( request.body.URL === "")
-  idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
+  idea.URL= "http://also.kottke.org/misc/images/food-gradients-01.jpg";
   else
   idea.URL = request.body.URL;
   idea.author = request.body.author;
