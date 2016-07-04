@@ -56,4 +56,21 @@ form {
   text-align: left;
   padding: 10px;
   border: 2px solid #225378;
+  border-radius: 10px; 
+}
+
+.note {
+  display: none;
+  position: fixed;
+  top: 28.5%;
+  left: 40%;
+  background-color: white;
+  font-size: 20px;
+  padding: 5px;
+  border: 2px solid #225378;
+  border-radius: 10px;
+}
+
+.note.shown {
+  display: block;
 }
