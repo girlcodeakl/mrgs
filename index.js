@@ -34,18 +34,27 @@ var saveNewIdea = function (request, response) {
   var idea = {};
   idea.text = request.body.idea;
   if ( request.body.URL === "")
-    idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
+  idea.URL= "https://c.tadst.com/gfx/750w/sunrise-sunset-sun-calculator.jpg?1";
   else
-    idea.URL = request.body.URL;
+  idea.URL = request.body.URL;
   idea.author = request.body.author;
   idea.link = request.body.link;
+
+  var prefix = "http://";
+  var prefix2 ="https://";
+  if (idea.link.substr(0, prefix.length) !== prefix && idea.link.substr(0,prefix2.length) !==prefix2){
+    idea.link=prefix + idea.link;
+  }
+  else {
+    idea.link=idea.link;
+  }
 
   idea.time=new Date();
   posts.push(idea)
   response.send("thanks for your idea. Press back to add another");
-if(database!=null){
-  var dbPosts = database.collection('posts');
-  dbPosts.insert(idea);
+  if(database!=null){
+    var dbPosts = database.collection('posts');
+    dbPosts.insert(idea);
   }
 }
 app.post('/ideas', saveNewIdea);
@@ -58,7 +67,7 @@ var uri = 'mongodb://girlcode:mrgs@ds023704.mlab.com:23704/girlcode_mrgs';
 mongodb.MongoClient.connect(uri, function(err, newdb) {
   if(err) {
     console.log( err);
-;return;
+    ;return;
   }
   console.log("yay we connected to the database");
   database = newdb;
