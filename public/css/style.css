@@ -61,6 +61,7 @@ li a:hover {
 
 form {
   background-color: lightblue;
+  vertical-align: top;
   text-align: left;
   padding: 10px;
   border: 2px solid #225378;
@@ -85,4 +86,23 @@ form {
 
 .author {
     color: #eb7f00;
+}
+.formfield {
+  height:100px;
+  width:500px
+
+}
+.authorfield{
+  width:500px;
+}
+.imagefield{
+  width:500px;
+}
+.linkfield{
+  width:500px;
+}
+.postbutton{
+  height:50px;
+  width:200px;
+font-size: 20px
 }
